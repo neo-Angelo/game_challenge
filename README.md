@@ -58,12 +58,16 @@ Certifique-se de estar na pasta raiz do jogo e instale o Pygame Zero executando 
 ```bash
 pip install pgzero
 
+---
+
 ##  Rodar o Jogo
 
 Execute o comando abaixo no terminal:
 
 ```bash
 python -m pgzero main.py
+
+---
 
 ##  Controles
 
@@ -72,6 +76,8 @@ python -m pgzero main.py
 * Botão Esquerdo do Mouse: Atacar.
 
 * Mouse: Interagir com os botões do menu.
+
+---
 
 ##  Créditos e Assets
 
