@@ -30,7 +30,7 @@ python -m pgzero main.py
 ou 
 
 ```bash
-pgzero main.py
+pgzrun main.py
 
 ```
 depende de se estar no linux ou windows, e versoes do python
