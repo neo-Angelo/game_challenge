@@ -86,7 +86,7 @@ class Player:
             self.has_dealt_damage = False 
 
     def _update_attack_hitbox(self):
-        """Gera um retângulo na frente do player"""
+
 
         atk_size = 70   
         

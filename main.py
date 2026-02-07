@@ -1,4 +1,3 @@
-import sys
 from player import Player
 from level import Level
 from stats import PlayerStats
@@ -12,13 +11,13 @@ from uis import UIManager
 WIDTH = 800
 HEIGHT = 600
 
-# --- INICIALIZAÇÃO ---
+
 level = Level()
 player_stats = PlayerStats(max_hp=5)
 sound_manager = SoundManager()
 ui = UIManager(sound_manager)
 
-# 1. COMEÇA TOCANDO A MÚSICA DO MENU
+
 sound_manager.play_menu_music()
 
 start_x = WIDTH // 2
@@ -39,7 +38,7 @@ player = Player(
 enemies = []
 
 def get_safe_spawn_pos():
-    """Gera uma posição aleatória longe do jogador."""
+
     while True:
         rand_col = random.randint(2, level.cols - 2)
         rand_row = random.randint(2, level.rows - 2)
@@ -52,7 +51,7 @@ def get_safe_spawn_pos():
             return ex, ey
 
 def reset_game():
-    """Prepara o jogo para iniciar (resetando inimigos e vida)."""
+
     global enemies, camera_x, camera_y
     
     player.actor.pos = (start_x, start_y)
@@ -61,13 +60,13 @@ def reset_game():
     player.state = "idle"
     
     enemies = []
-    # 15 Esqueletos
+
     for _ in range(15): 
         ex, ey = get_safe_spawn_pos()
         speed = random.randint(90, 110)
         enemies.append(SmartEnemy(ex, ey, "skeleton", speed))
 
-    # 9 Bruxas
+
     for _ in range(9): 
         ex, ey = get_safe_spawn_pos()
         enemies.append(WitchEnemy(ex, ey, "witch", 140))
@@ -75,25 +74,18 @@ def reset_game():
     camera_x = 0
     camera_y = 0
     
-    # 2. QUANDO RESETAR (INICIAR), TOCA A MÚSICA DA FASE
-    sound_manager.play_background_music()
 
-# Popula lista inicial (mas o jogo começa no menu tocando música de menu)
-# Nota: Não chamamos reset_game() aqui para não tocar a música errada.
-# Fazemos um setup manual silencioso só para não dar erro de lista vazia.
-temp_enemies = [] 
+    sound_manager.play_background_music()
 
 def on_mouse_down(pos, button):
     action = ui.handle_click(pos)
     
-    # Clicou em INICIAR no Menu
     if action == "reset_game":
-        reset_game() # Aqui toca a música 'level'
+        reset_game() 
         return
 
-    # Clicou em VOLTAR AO MENU (Game Over/Win)
     elif action == "goto_menu":
-        sound_manager.play_menu_music() # Toca música 'menu'
+        sound_manager.play_menu_music() 
         return
 
     if ui.current_state == "game":
@@ -106,19 +98,19 @@ def update(dt):
     if ui.current_state != "game":
         return
 
-    # --- VERIFICAÇÃO DE DERROTA ---
+
     if player_stats.hp <= 0:
         ui.current_state = "game_over"
-        sound_manager.play_gameover_music() # 3. TOCA MÚSICA GAME OVER
+        sound_manager.play_gameover_music() 
         return
 
-    # --- VERIFICAÇÃO DE VITÓRIA ---
+
     if len(enemies) == 0:
         ui.current_state = "win"
-        sound_manager.stop_music() # 4. PARA MÚSICA (OU PODERIA TOCAR OUTRA)
+        sound_manager.play_win_music() 
         return
 
-    # --- LÓGICA DO JOGO ---
+
     player.update(dt, keyboard, level.width_px, level.height_px)
     
     alive_enemies = []
@@ -141,6 +133,7 @@ def update(dt):
 
         alive_enemies.append(enemy)
     enemies[:] = alive_enemies
+
 
     current_w = screen.surface.get_width()
     current_h = screen.surface.get_height()

@@ -6,39 +6,51 @@ class SoundManager:
         self.music_enabled = True
         self.music_volume = 0.4 
 
-    # --- EFEITOS SONOROS (SFX) ---
     def play_player_damage(self):
-        if self.sfx_enabled and hasattr(sounds, 'player_damage'):
-            sounds.player_damage.stop()
-            sounds.player_damage.play()
+        if self.sfx_enabled:
+            try:
+                if hasattr(sounds, 'player_damage'):
+                    sounds.player_damage.stop()
+                    sounds.player_damage.play()
+            except: pass
 
     def play_enemy_damage(self):
-        if self.sfx_enabled and hasattr(sounds, 'enemy_damage'):
-            sounds.enemy_damage.play()
+        if self.sfx_enabled:
+            try:
+                if hasattr(sounds, 'enemy_damage'):
+                    sounds.enemy_damage.play()
+            except: pass
 
-    # --- MÚSICAS (BGM) ---
     
     def play_background_music(self):
-        """Música da fase (Jogo)"""
+
         if self.music_enabled:
             try:
-                music.play('level') # level.mp3
+                music.play('level') 
                 music.set_volume(self.music_volume)
             except: pass
 
     def play_menu_music(self):
-        """Música do Menu Principal"""
+
         if self.music_enabled:
             try:
-                music.play('menu') # menu.mp3
+                music.play('menu')
                 music.set_volume(self.music_volume)
             except: pass
 
     def play_gameover_music(self):
-        """Música de Game Over"""
+ 
         if self.music_enabled:
             try:
-                music.play('gameover') # gameover.mp3
+                music.play('gameover')
+                music.set_volume(self.music_volume)
+            except: pass
+
+    def play_win_music(self):
+
+        if self.music_enabled:
+            try:
+                music.play('win')
                 music.set_volume(self.music_volume)
             except: pass
 
