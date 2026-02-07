@@ -69,11 +69,11 @@ O código foi estruturado utilizando Programação Orientada a Objetos (POO), se
 
 ##  Screenshots
 
-*(Espaço reservado para adicionar as imagens do jogo)*
+<img width="796" height="600" alt="Image" src="https://github.com/user-attachments/assets/ddc1eaa6-e57d-49ad-bf45-5b5f39495ae6" />
 
-| Menu Principal | Gameplay |
-| :---: | :---: |
-| ![Menu Screenshot](caminho/para/imagem_menu.png) | ![Gameplay Screenshot](caminho/para/imagem_game.png) |
+<img width="796" height="594" alt="Image" src="https://github.com/user-attachments/assets/1f4ed7ae-07f6-41f4-8951-56acaa9e1a7a" />
+
+<img width="786" height="592" alt="Image" src="https://github.com/user-attachments/assets/923df772-0ec2-4243-88b5-58b7f3f69850" />
 
 ---
 
