@@ -23,12 +23,20 @@ class BaseEnemy:
         self.target_y = y
         self.is_moving = False
         
-        # --- MUDANÇA 1: Hitbox reduzida para 2x (60px) ---
-        # Antes 90, agora 60 (para ser 2x a base de 30)
-        self.hitbox = Rect(0, 0, 40, 40)
+        # Hitbox (60x60)
+        self.hitbox = Rect(0, 0, 60, 60)
         self.hitbox.center = self.actor.pos
 
+        # --- NOVO: Vida do Inimigo ---
+        self.health = 4
+        # Timer visual para piscar quando tomar dano (igual ao player)
+        self.flash_timer = 0 
+
     def update(self, dt, map_width, map_height, player_pos):
+        # Gerencia o piscar de dano
+        if self.flash_timer > 0:
+            self.flash_timer -= dt
+
         if self.is_moving:
             self.state = "move"
             self._move_smoothly(dt)
@@ -44,6 +52,12 @@ class BaseEnemy:
 
         self.hitbox.center = self.actor.pos
         self._animate(dt, images=None)
+
+    def take_damage(self, amount):
+        """Reduz a vida. Retorna True se morreu."""
+        self.health -= amount
+        self.flash_timer = 0.2 # Pisca branco por 0.2s
+        return self.health <= 0
 
     def _move_smoothly(self, dt):
         step = self.speed * dt
@@ -78,78 +92,73 @@ class BaseEnemy:
         pass
 
     def draw(self, screen, camera_x, camera_y):
-        real_x, real_y = self.actor.pos
-        self.actor.x -= camera_x
-        self.actor.y -= camera_y
-        self.actor.draw()
-        
-        self.hitbox.x -= camera_x
-        self.hitbox.y -= camera_y
-        screen.draw.rect(self.hitbox, (255, 0, 0))
-        self.hitbox.x += camera_x
-        self.hitbox.y += camera_y
-        
-        self.actor.pos = (real_x, real_y)
+        # Lógica de piscar ao tomar dano (opcional, mas visualmente bom)
+        if self.flash_timer > 0 and (int(self.flash_timer * 20) % 2 == 0):
+            # Pula o desenho para piscar
+            pass 
+        else:
+            real_x, real_y = self.actor.pos
+            self.actor.x -= camera_x
+            self.actor.y -= camera_y
+            self.actor.draw()
+            
+            # Hitbox Vermelha
+            self.hitbox.x -= camera_x
+            self.hitbox.y -= camera_y
+            screen.draw.rect(self.hitbox, (255, 0, 0))
+            self.hitbox.x += camera_x
+            self.hitbox.y += camera_y
+            
+            self.actor.pos = (real_x, real_y)
 
+# --- CLASSES FILHAS (Mantêm-se iguais, só copiei o cabeçalho) ---
+class RoamingEnemy(BaseEnemy):
+    # (Seu código original aqui...)
+    pass
 
-# --- INIMIGO DE PERSEGUIÇÃO ATUALIZADO ---
 class ChasingEnemy(BaseEnemy):
+    # (Seu código original aqui...)
+    # Certifique-se de que ChasingEnemy herda o __init__ ou chama super().__init__ 
+    # para ter self.health
     def __init__(self, x, y, image_prefix, speed=110): 
         super().__init__(x, y, image_prefix, speed)
         self.wait_timer = 0 
-
+        # Resto do código da IA...
+    
+    # Copie o método _ai_logic que fizemos na resposta anterior
     def _ai_logic(self, dt, map_width, map_height, player_pos):
-        # 1. Delay
+        # (Código da IA que fizemos anteriormente)
         if self.wait_timer > 0:
             self.wait_timer -= dt
             return
 
-        # 2% de chance de parar para descansar
         if random.random() < 0.02:
             self.wait_timer = random.uniform(0.5, 1.5)
             return
 
-        # 2. Calcula Distância
         px, py = player_pos
         dx = px - self.actor.x
         dy = py - self.actor.y
-        
         move_x = 0
         move_y = 0
-        
-        # --- MUDANÇA 2: "Destoar" o caminho (Ruído na decisão) ---
-        # Por padrão, escolhemos o eixo com maior distância (Lógica Gulosa)
         prefer_x = abs(dx) > abs(dy)
-        
-        # MAS, temos 25% de chance de tentar ir pelo outro eixo (se possível)
-        # Isso faz alguns inimigos irem por cima e outros por baixo (Zigue-Zague)
         if dx != 0 and dy != 0 and random.random() < 0.25:
             prefer_x = not prefer_x
 
-        # Aplica a decisão
         if prefer_x:
-            if dx != 0:
-                move_x = TILE_SIZE if dx > 0 else -TILE_SIZE
-            else:
-                move_y = TILE_SIZE if dy > 0 else -TILE_SIZE
+            if dx != 0: move_x = TILE_SIZE if dx > 0 else -TILE_SIZE
+            else: move_y = TILE_SIZE if dy > 0 else -TILE_SIZE
         else:
-            if dy != 0:
-                move_y = TILE_SIZE if dy > 0 else -TILE_SIZE
-            else:
-                move_x = TILE_SIZE if dx > 0 else -TILE_SIZE
+            if dy != 0: move_y = TILE_SIZE if dy > 0 else -TILE_SIZE
+            else: move_x = TILE_SIZE if dx > 0 else -TILE_SIZE
             
-        # Define destino
         next_x = self.actor.x + move_x
         next_y = self.actor.y + move_y
         
-        # Verifica limites
         margin = TILE_SIZE / 2
         if (margin <= next_x <= map_width - margin) and \
            (margin <= next_y <= map_height - margin):
-            
             self.target_x = next_x
             self.target_y = next_y
             self.is_moving = True
-            
-            # Pequeno delay aleatório entre passos para dessincronizar movimento
             self.wait_timer = random.uniform(0.01, 0.05)
