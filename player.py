@@ -207,7 +207,7 @@ class Player:
                 dbg_atk = self.attack_hitbox.copy()
                 dbg_atk.x -= camera_x
                 dbg_atk.y -= camera_y
-                screen.draw.rect(dbg_atk, (0, 0, 255)) 
+                #screen.draw.rect(dbg_atk, (0, 0, 255)) 
             
             self.actor.x = real_x
             self.actor.y = real_y
