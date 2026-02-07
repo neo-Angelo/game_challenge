@@ -6,20 +6,8 @@
 
 Este projeto foi desenvolvido como parte de um desafio técnico para tutores, com o objetivo de demonstrar domínio da linguagem Python, lógica de programação e arquitetura de software, respeitando restrições rígidas de bibliotecas.
 
----
-##  Como Executar
-
-Para jogar, você precisa ter o **Python 3** instalado.
-
-### 1. Instalar Dependências
-Certifique-se de estar na pasta raiz do jogo e instale o Pygame Zero executando o comando:
-
-```bash
-pip install pgzero
-
-```
-
 ### 2.  Rodar o Jogo
+a escolha depende se esta no windows ou linux, porem pode haver incompatibilidade com o python 3.13, pois o pgzero esta instavel no mesmo, verifique sua versao do python (recomendadas, python 3.10 - 3.12), sendo o python 3.12 o que o codigo foi feito
 
 Execute o comando abaixo no terminal:
 
@@ -33,7 +21,7 @@ ou
 pgzrun main.py
 
 ```
-depende de se estar no linux ou windows, e versoes do python diferentes podem possuir diferenças de execução do pgzero, procure a forma de execução da sua versão do python caso esse seja o caso
+
 ##  Controles
 
 * W, A, S, D: Movimentar o personagem.
@@ -43,6 +31,18 @@ depende de se estar no linux ou windows, e versoes do python diferentes podem po
 * Mouse: Interagir com os botões do menu.
 
 ---
+---
+##  Como Executar
+
+Para jogar, você precisa ter o **Python 3** instalado.
+
+### 1. Instalar Dependências
+Certifique-se de estar na pasta raiz do jogo e instale o Pygame Zero executando o comando:
+
+```bash
+pip install pgzero
+
+```
 
 ##  O Desafio Proposto
 
