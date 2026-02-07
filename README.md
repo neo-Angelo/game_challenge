@@ -21,6 +21,11 @@ ou
 pgzrun main.py
 
 ```
+caso persista erros force uma versão estavel do pgzero, esta ou alguma que estabilize no seu computador que consiga rodar as musicas de fundo, sendo esse um indicativo de erro comum
+
+```bash
+pip install "pygame==2.5.2
+```
 
 ##  Controles
 
