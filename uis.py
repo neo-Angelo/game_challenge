@@ -1,6 +1,6 @@
-from pygame import Rect 
+from pygame import Rect
 
-
+# Cores
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GRAY = (100, 100, 100)
@@ -12,8 +12,9 @@ BLUE = (50, 50, 200)
 class UIManager:
     def __init__(self, sound_manager):
         self.sound_manager = sound_manager
-        self.current_state = "menu"  
+        self.current_state = "menu" 
         
+
         self.cx = 400
         self.cy = 300
 
@@ -39,7 +40,6 @@ class UIManager:
 
     def draw(self, screen):
 
-        
         if self.current_state == "menu":
             self._draw_menu(screen)
         elif self.current_state == "game_over":
@@ -53,9 +53,16 @@ class UIManager:
         screen.draw.text(text, center=rect.center, fontsize=30, color=WHITE, shadow=(1,1))
 
     def _draw_menu(self, screen):
-        screen.fill(DARK_GRAY)
+
+        try:
+            screen.blit("menu", (0, 0))
+        except:
+
+            screen.fill(DARK_GRAY)
+
+
         screen.draw.text("ROGUE LIKING", center=(self.cx, 100), fontsize=60, color=RED, shadow=(2,2))
-        screen.draw.text("WASD para mover, botão esquerdo do mouse ATAQUE", center=(self.cx, 160), fontsize=30, color=WHITE)
+        screen.draw.text("WASD para mover, botao esquero do mouse para ATAQUE", center=(self.cx, 160), fontsize=30, color=WHITE, shadow=(1,1))
 
         self._draw_button(screen, self.btn_start, "INICIAR", BLUE)
         
@@ -75,7 +82,7 @@ class UIManager:
         screen.draw.filled_rect(Rect(0, 0, 800, 600), (0, 0, 0)) 
         
         screen.draw.text("GAME OVER", center=(self.cx, 150), fontsize=80, color=RED, shadow=(2,2))
-        screen.draw.text("Voce morreu...", center=(self.cx, 220), fontsize=40, color=WHITE)
+        screen.draw.text("Voce morreu", center=(self.cx, 220), fontsize=40, color=WHITE)
 
         self._draw_button(screen, self.btn_main_menu, "MENU PRINCIPAL", BLUE)
         self._draw_button(screen, self.btn_quit_end, "SAIR", GRAY)
@@ -109,7 +116,7 @@ class UIManager:
                 self.sound_manager.sfx_enabled = not self.sound_manager.sfx_enabled
             
             elif self.btn_quit_menu.collidepoint(x, y):
-                exit() 
+                exit() # Sai do jogo
 
         elif self.current_state in ["game_over", "win"]:
             if self.btn_main_menu.collidepoint(x, y):
@@ -117,6 +124,6 @@ class UIManager:
                 return "goto_menu"
             
             elif self.btn_quit_end.collidepoint(x, y):
-                exit() 
+                exit() # Sai do jogo
         
         return None
