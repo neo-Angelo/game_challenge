@@ -1,4 +1,4 @@
-# ROGUE LIKING ⚔️
+# ROGUE LIKING 
 
 **Desenvolvedor:** Rafael Cardoso Ferreira
 
@@ -8,7 +8,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico para tutores, co
 
 ---
 
-## 📋 O Desafio Proposto
+##  O Desafio Proposto
 
 O objetivo foi criar um jogo completo "do zero", sem depender de engines robustas, para validar a compreensão dos fundamentos da programação de jogos.
 
@@ -24,7 +24,7 @@ O objetivo foi criar um jogo completo "do zero", sem depender de engines robusta
 
 ---
 
-## 🚀 O Que Foi Implementado
+##  O Que Foi Implementado
 
 O código foi estruturado utilizando Programação Orientada a Objetos (POO), separando responsabilidades em classes distintas.
 
@@ -38,7 +38,7 @@ O código foi estruturado utilizando Programação Orientada a Objetos (POO), se
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 *(Espaço reservado para adicionar as imagens do jogo)*
 
@@ -48,7 +48,7 @@ O código foi estruturado utilizando Programação Orientada a Objetos (POO), se
 
 ---
 
-## 🎮 Como Executar
+##  Como Executar
 
 Para jogar, você precisa ter o **Python 3** instalado.
 
@@ -57,3 +57,46 @@ Certifique-se de estar na pasta raiz do jogo e instale o Pygame Zero executando 
 
 ```bash
 pip install pgzero
+
+##  Rodar o Jogo
+
+Execute o comando abaixo no terminal:
+
+```bash
+python -m pgzero main.py
+
+##  Controles
+
+* W, A, S, D: Movimentar o personagem.
+
+* Botão Esquerdo do Mouse: Atacar.
+
+* Mouse: Interagir com os botões do menu.
+
+##  Créditos e Assets
+
+Todos os recursos utilizados são gratuitos/Royalty Free. Abaixo estão os links para os autores originais:
+
+### 👤 Personagem (2D Character)
+* **Top Down Adventurer** por *xzany*
+* [Link para o asset](https://xzany.itch.io/top-down-adventurer-character)
+
+### 💀 Inimigos (Enemies)
+* **Monster Pack** por *Admurin*
+* [Link para o asset](https://admurin.itch.io/monster-pack-40)
+
+### ❤️ Interface (UI)
+* **Hearts and Health Bar** por *FliFliFly*
+* [Link para o asset](https://fliflifly.itch.io/hearts-and-health-bar)
+
+### 🌲 Cenário (Level)
+* **Topdown Fantasy Forest** por *aamatniekss*
+* [Link para o asset](https://aamatniekss.itch.io/topdown-fantasy-forest)
+
+### 🔊 Sons de Efeito (SFX)
+* **Retro Impact** por *EVRetro* (Freesound)
+* [Link para o asset](https://freesound.org/people/EVRetro/sounds/519072/)
+
+### 🎵 Música (Music)
+* **Pixel Style Music** via *Pixabay*
+* [Link para o asset](https://pixabay.com/music/search/pixel/)
