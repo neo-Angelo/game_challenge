@@ -7,6 +7,9 @@
 Este projeto foi desenvolvido como parte de um desafio técnico para tutores, com o objetivo de demonstrar domínio da linguagem Python, lógica de programação e arquitetura de software, respeitando restrições rígidas de bibliotecas.
 
 ### 2.  Rodar o Jogo
+Este jogo foi desenvolvido e testado nativamente no Python 3.12.
+AVISO DE COMPATIBILIDADE (Python 3.13+) ⚠️ O Pygame Zero pode apresentar instabilidade ou erros (como KeyError: 0 ou falhas de áudio) em versões muito recentes do Python (3.13 ou superior) devido a mudanças internas no Pygame.
+
 a escolha depende se esta no windows ou linux, porem pode haver incompatibilidade com o python 3.13 e acima, pois o pgzero esta instavel no mesmo, verifique sua versao do python, sendo o python 3.12 o que o codigo foi feito, e recomendado para executar o jogo
 
 Execute o comando abaixo no terminal:
