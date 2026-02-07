@@ -7,7 +7,7 @@
 Este projeto foi desenvolvido como parte de um desafio técnico para tutores, com o objetivo de demonstrar domínio da linguagem Python, lógica de programação e arquitetura de software, respeitando restrições rígidas de bibliotecas.
 
 ### 2.  Rodar o Jogo
-a escolha depende se esta no windows ou linux, porem pode haver incompatibilidade com o python 3.13, pois o pgzero esta instavel no mesmo, verifique sua versao do python (recomendadas, python 3.10 - 3.12), sendo o python 3.12 o que o codigo foi feito
+a escolha depende se esta no windows ou linux, porem pode haver incompatibilidade com o python 3.13 e acima, pois o pgzero esta instavel no mesmo, verifique sua versao do python, sendo o python 3.12 o que o codigo foi feito, e recomendado para executar o jogo
 
 Execute o comando abaixo no terminal:
 
