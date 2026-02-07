@@ -27,6 +27,13 @@ Execute o comando abaixo no terminal:
 python -m pgzero main.py
 
 ```
+ou 
+
+```bash
+pgzero main.py
+
+```
+depende de se estar no linux ou windows, e versoes do python
 ##  Controles
 
 * W, A, S, D: Movimentar o personagem.
