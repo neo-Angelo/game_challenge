@@ -7,6 +7,35 @@
 Este projeto foi desenvolvido como parte de um desafio técnico para tutores, com o objetivo de demonstrar domínio da linguagem Python, lógica de programação e arquitetura de software, respeitando restrições rígidas de bibliotecas.
 
 ---
+##  Como Executar
+
+Para jogar, você precisa ter o **Python 3** instalado.
+
+### 1. Instalar Dependências
+Certifique-se de estar na pasta raiz do jogo e instale o Pygame Zero executando o comando:
+
+```bash
+pip install pgzero
+
+```
+
+### 2.  Rodar o Jogo
+
+Execute o comando abaixo no terminal:
+
+```bash
+python -m pgzero main.py
+
+```
+##  Controles
+
+* W, A, S, D: Movimentar o personagem.
+
+* Botão Esquerdo do Mouse: Atacar.
+
+* Mouse: Interagir com os botões do menu.
+
+---
 
 ##  O Desafio Proposto
 
@@ -48,36 +77,7 @@ O código foi estruturado utilizando Programação Orientada a Objetos (POO), se
 
 ---
 
-##  Como Executar
 
-Para jogar, você precisa ter o **Python 3** instalado.
-
-### 1. Instalar Dependências
-Certifique-se de estar na pasta raiz do jogo e instale o Pygame Zero executando o comando:
-
-```bash
-pip install pgzero
-
----
-
-##  Rodar o Jogo
-
-Execute o comando abaixo no terminal:
-
-```bash
-python -m pgzero main.py
-
----
-
-##  Controles
-
-* W, A, S, D: Movimentar o personagem.
-
-* Botão Esquerdo do Mouse: Atacar.
-
-* Mouse: Interagir com os botões do menu.
-
----
 
 ##  Créditos e Assets
 
