@@ -12,9 +12,7 @@ class Player:
         self.speed = speed 
         self.anim_speed = anim_speed
         
-        # --- NOVO: Velocidade específica para o ataque ---
-        # Quanto menor o número, mais rápida a animação.
-        # Se anim_speed normal é 0.08 ou 0.1, 0.05 será bem rapidinho.
+
         self.attack_anim_speed = 0.05 
 
         self.state = "idle"
@@ -89,12 +87,10 @@ class Player:
 
     def _update_attack_hitbox(self):
         """Gera um retângulo na frente do player"""
-        # --- MUDANÇA AQUI: Aumentando o tamanho da hitbox azul ---
-        # Antes era 40. Aumentei para 70 (ficou bem grande e fácil de acertar)
+
         atk_size = 70   
         
-        # Aumentei um pouco o offset (distância do centro) de 40 para 50
-        # para o quadrado maior não ficar muito em cima do player.
+
         offset_dist = 50 
         
         center_x, center_y = self.actor.pos
@@ -165,13 +161,12 @@ class Player:
     def _animate(self, dt):
         self.frame_timer += dt
         
-        # --- MUDANÇA AQUI: Define qual velocidade usar ---
-        # Se estiver atacando, usa a velocidade rápida. Se não, usa a normal.
+
         current_speed_limit = self.anim_speed
         if self.state == "attack1":
             current_speed_limit = self.attack_anim_speed
 
-        # Usa o limite escolhido acima
+
         if self.frame_timer < current_speed_limit:
             return
 
@@ -207,7 +202,7 @@ class Player:
             self.actor.y -= camera_y
             self.actor.draw()
             
-            # Debug: Hitbox de ATAQUE (Azul)
+            # Debug: Hitbox de ATAQUE 
             if self.state == "attack1":
                 dbg_atk = self.attack_hitbox.copy()
                 dbg_atk.x -= camera_x

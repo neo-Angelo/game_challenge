@@ -136,7 +136,7 @@ class Level:
         def is_dark(gy, gx):
             if 0 <= gy < self.rows and 0 <= gx < self.cols:
                 return self.grid[gy][gx] == TERRAIN_DARK_GRASS
-            return False # Fora do mapa não é dark grass
+            return False 
 
         n_is_dark = is_dark(y-1, x)
         s_is_dark = is_dark(y+1, x)
@@ -160,7 +160,7 @@ class Level:
         elif not e_is_dark:
             tile_id = 34 # Direita
         else:
-            tile_id = 33 # Centro preenchido
+            tile_id = 33 # Centro 
 
         tile_name = self._get_tile_name(tile_id)
         screen.blit(getattr(images.tiles.grass_dark, tile_name), (screen_x, screen_y))
