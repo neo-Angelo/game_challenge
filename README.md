@@ -30,7 +30,7 @@ caso persista erros force uma versão estavel do pgzero, esta ou alguma que esta
 ```bash
 pip install "pygame==2.5.2
 ```
-
+---
 ##  Controles
 
 * W, A, S, D: Movimentar o personagem.
@@ -40,7 +40,7 @@ pip install "pygame==2.5.2
 * Mouse: Interagir com os botões do menu.
 
 ---
----
+
 ##  Como Executar
 
 Para jogar, você precisa ter o **Python 3** instalado.
