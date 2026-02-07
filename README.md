@@ -33,7 +33,7 @@ ou
 pgzrun main.py
 
 ```
-depende de se estar no linux ou windows, e versoes do python
+depende de se estar no linux ou windows, e versoes do python diferentes podem possuir diferenças de execução do pgzero, procure a forma de execução da sua versão do python caso esse seja o caso
 ##  Controles
 
 * W, A, S, D: Movimentar o personagem.
