@@ -54,8 +54,8 @@ class UIManager:
 
     def _draw_menu(self, screen):
         screen.fill(DARK_GRAY)
-        screen.draw.text("ROGUE ADVENTURE", center=(self.cx, 100), fontsize=60, color=RED, shadow=(2,2))
-        screen.draw.text("Derrote todos os inimigos!", center=(self.cx, 160), fontsize=30, color=WHITE)
+        screen.draw.text("ROGUE LIKING", center=(self.cx, 100), fontsize=60, color=RED, shadow=(2,2))
+        screen.draw.text("WASD para mover, botão esquerdo do mouse ATAQUE", center=(self.cx, 160), fontsize=30, color=WHITE)
 
         self._draw_button(screen, self.btn_start, "INICIAR", BLUE)
         
