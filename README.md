@@ -35,7 +35,7 @@ pip install "pygame==2.5.2
 
 * W, A, S, D: Movimentar o personagem.
 
-* Botão Esquerdo do Mouse: Atacar.
+* Botão Esquerdo do Mouse: Atacar, so pode atacar se nao estiver andando.
 
 * Mouse: Interagir com os botões do menu.
 
